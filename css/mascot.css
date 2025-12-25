@@ -1,1 +1,291 @@
+/* ===== МАСКОТ ЛЕА ===== */
 
+/* Контейнер чата с маскотом */
+.mascot-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    height: calc(100vh - var(--header-height) - 8rem);
+}
+
+/* Карточка маскота */
+.mascot-character {
+    background: var(--black-card);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mascot-avatar {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.mascot-info {
+    width: 100%;
+}
+
+.mascot-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mascot-title {
+    color: var(--white-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.mascot-mood {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--black-tertiary);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+}
+
+/* Чат */
+.mascot-chat {
+    background: var(--black-card);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--gray-dark);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.chat-header h3 {
+    font-size: 1.1rem;
+}
+
+/* Темы для чата */
+.chat-topics {
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-dark);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.topic-btn {
+    padding: 0.5rem 1rem;
+    background: var(--gray-dark);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--white-secondary);
+    transition: all var(--transition-fast);
+}
+
+.topic-btn:hover {
+    background: var(--red-primary);
+    color: white;
+}
+
+.topic-btn.active {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: white;
+}
+
+/* Сообщения */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chat-message {
+    display: flex;
+    gap: 1rem;
+    animation: messageIn 0.3s ease;
+}
+
+@keyframes messageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-message.mascot .message-avatar {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.chat-message.user {
+    flex-direction: row-reverse;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-lg);
+    line-height: 1.6;
+}
+
+.chat-message.mascot .message-content {
+    background: var(--black-tertiary);
+    border: 1px solid var(--gray-dark);
+}
+
+.chat-message.user .message-content {
+    background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+}
+
+/* Стили для теории внутри сообщений */
+.message-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--red-light);
+}
+
+.message-content h4 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+    color: var(--white-primary);
+}
+
+.message-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.message-content li {
+    margin-bottom: 0.5rem;
+}
+
+.message-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.message-content th,
+.message-content td {
+    padding: 0.5rem;
+    border: 1px solid var(--gray-medium);
+    text-align: left;
+}
+
+.message-content th {
+    background: var(--gray-dark);
+}
+
+.message-content em {
+    color: var(--red-light);
+    font-style: normal;
+}
+
+.message-content strong {
+    color: var(--warning);
+}
+
+/* Ввод сообщения */
+.chat-input-container {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--gray-dark);
+    display: flex;
+    gap: 1rem;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    background: var(--black-tertiary);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-lg);
+    color: var(--white-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.chat-input:focus {
+    border-color: var(--red-primary);
+}
+
+.chat-send {
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+}
+
+.chat-send:hover {
+    transform: scale(1.05);
+}
+
+/* Плавающий маскот */
+.floating-mascot {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+    transition: all var(--transition-normal);
+    z-index: 50;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-mascot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
+}
+
+.mascot-tooltip {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--black-card);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+    pointer-events: none;
+}
+
+.floating-mascot:hover .mascot-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
