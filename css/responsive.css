@@ -1,20 +1,60 @@
-/* ===== ПЛАНШЕТЫ ===== */
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
 @media (max-width: 1024px) {
-    .roadmap-path {
-        display: none;
+    .mascot-container {
+        grid-template-columns: 1fr;
     }
     
-    .unit-node {
-        padding: 0 !important;
-        flex-direction: column !important;
+    .mascot-character {
+        flex-direction: row;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
     
-    .unit-connector {
-        display: none;
+    .mascot-avatar {
+        font-size: 4rem;
+        margin-bottom: 0;
+    }
+    
+    .mascot-info {
+        text-align: left;
+    }
+    
+    .mascot-mood {
+        justify-content: flex-start;
+    }
+    
+    .avatar-customizer {
+        grid-template-columns: 1fr;
+    }
+    
+    .avatar-preview {
+        flex-direction: row;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+    
+    .avatar-display {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 0;
+    }
+    
+    .avatar-base {
+        font-size: 5rem;
+    }
+    
+    .avatar-info {
+        text-align: left;
+    }
+    
+    .avatar-actions {
+        justify-content: flex-start;
     }
 }
 
-/* ===== МОБИЛЬНЫЕ ===== */
+/* Мобильные */
 @media (max-width: 768px) {
     :root {
         --header-height: 60px;
@@ -28,30 +68,31 @@
     .main-content {
         margin-left: 0;
         padding: 1rem;
+        padding-bottom: 80px;
     }
     
     .header {
         padding: 0 1rem;
     }
     
-    .streak-display {
-        padding: 0.4rem 0.75rem;
+    .logo-text {
+        display: none;
     }
     
     .streak-label {
         display: none;
     }
     
-    .currency-display {
-        padding: 0.4rem 0.75rem;
-    }
-    
+    /* Создание персонажа */
     .title-glow {
         font-size: 2rem;
     }
     
+    .mascot-welcome {
+        font-size: 4rem;
+    }
+    
     .avatar-grid {
-        grid-template-columns: repeat(4, 1fr);
         gap: 0.75rem;
     }
     
@@ -59,6 +100,7 @@
         font-size: 1.75rem;
     }
     
+    /* Урок */
     .lesson-content {
         height: 100vh;
         border-radius: 0;
@@ -77,6 +119,7 @@
         padding: 1rem;
     }
     
+    /* Результат */
     .result-stats {
         grid-template-columns: 1fr;
     }
@@ -85,8 +128,63 @@
         flex-direction: column;
     }
     
+    /* Статистика */
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Маскот */
+    .mascot-character {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .mascot-info {
+        text-align: center;
+    }
+    
+    .mascot-mood {
+        justify-content: center;
+    }
+    
+    .chat-topics {
+        justify-content: center;
+    }
+    
+    /* Аватар */
+    .avatar-preview {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .avatar-display {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .avatar-base {
+        font-size: 4rem;
+    }
+    
+    .avatar-info {
+        text-align: center;
+    }
+    
+    .avatar-actions {
+        justify-content: center;
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Плавающий маскот */
+    .floating-mascot {
+        bottom: 5rem;
+        right: 1rem;
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
     }
     
     /* Мобильная навигация */
@@ -107,19 +205,29 @@
         flex-direction: column;
         gap: 0.25rem;
         padding: 0.5rem;
+        justify-content: center;
     }
     
     .mobile-nav .nav-item span {
         opacity: 1;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     
-    .mobile-nav .nav-item svg {
+    .mobile-nav .nav-item svg,
+    .mobile-nav .nav-item .nav-emoji {
         width: 20px;
         height: 20px;
+        font-size: 1.25rem;
     }
 }
 
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Маленькие мобильные */
 @media (max-width: 480px) {
     .stats-grid {
         grid-template-columns: 1fr;
@@ -133,5 +241,31 @@
     .page-header h1 {
         font-size: 1.5rem;
     }
+    
+    .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .item-card {
+        padding: 0.75rem;
+    }
+    
+    .item-preview {
+        font-size: 2rem;
+        height: 40px;
+    }
+    
+    .item-name {
+        font-size: 0.8rem;
+    }
+    
+    .customizer-tabs {
+        justify-content: center;
+    }
+    
+    .customizer-tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
 }
-
