@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEARU | Подготовка к ЕГЭ по русскому языку</title>
+    <title>ЕГЭ-Квест | Подготовка к ЕГЭ по русскому языку</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Стили -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mascot.css">
+    <link rel="stylesheet" href="css/avatar.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -14,58 +18,55 @@
     <!-- Экран загрузки -->
     <div id="loading-screen" class="loading-screen">
         <div class="loader">
+            <div class="loader-mascot">🐆</div>
             <div class="loader-ring"></div>
-            <span class="loader-text">LEARU</span>
+            <span class="loader-text">ЕГЭ-КВЕСТ</span>
         </div>
     </div>
 
     <!-- Создание персонажа -->
     <div id="character-creation" class="screen hidden">
         <div class="character-container">
+            <div class="mascot-welcome">🐆</div>
+            <div class="mascot-speech">
+                <p>Привет! Я <strong>Леа</strong> — твоя помощница в подготовке к ЕГЭ! 📚</p>
+                <p>Давай создадим твоего персонажа и начнём путешествие к 100 баллам!</p>
+            </div>
             <h1 class="title-glow">Создай своего героя</h1>
             <p class="subtitle">Выбери аватар и имя для начала квеста</p>
-            
             <div class="avatar-grid" id="avatar-grid"></div>
-            
             <div class="input-group">
                 <input type="text" id="player-name" placeholder="Введи имя героя" maxlength="20">
-                <span class="input-underline"></span>
             </div>
-            
-            <button id="start-journey" class="btn-primary btn-glow" disabled>
+            <button id="start-journey" class="btn-primary" disabled>
                 <span>Начать путешествие</span>
-                <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
             </button>
         </div>
     </div>
 
     <!-- Главный экран -->
     <div id="main-screen" class="screen hidden">
-        <!-- Верхняя панель -->
+        <!-- Хедер -->
         <header class="header">
             <div class="header-left">
                 <div class="logo">
-                    <span class="logo-icon">L</span>
-                    <span class="logo-text">LEARU</span>
+                    <span class="logo-icon">Е</span>
+                    <span class="logo-text">ЕГЭ-Квест</span>
                 </div>
             </div>
-            
             <div class="header-center">
-                <div class="streak-display" id="streak-display">
+                <div class="streak-display">
                     <span class="streak-fire">🔥</span>
                     <span class="streak-count" id="streak-count">0</span>
                     <span class="streak-label">дней</span>
                 </div>
             </div>
-            
             <div class="header-right">
                 <div class="hearts-container" id="hearts-container"></div>
-                
                 <div class="currency-display">
                     <span class="currency-icon">💎</span>
                     <span class="currency-amount" id="points-display">0</span>
                 </div>
-                
                 <div class="profile-btn" id="profile-btn">
                     <div class="profile-avatar" id="header-avatar"></div>
                     <div class="profile-level" id="header-level">1</div>
@@ -73,12 +74,20 @@
             </div>
         </header>
 
-        <!-- Боковая панель -->
+        <!-- Сайдбар -->
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <button class="nav-item active" data-page="roadmap">
                     <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     <span>Карта</span>
+                </button>
+                <button class="nav-item mascot-nav" data-page="mascot">
+                    <span class="nav-emoji">🐆</span>
+                    <span>Леа</span>
+                </button>
+                <button class="nav-item" data-page="avatar">
+                    <svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    <span>Аватар</span>
                 </button>
                 <button class="nav-item" data-page="stats">
                     <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
@@ -108,37 +117,126 @@
                         <span class="exp-text" id="exp-text">0 / 100 XP</span>
                     </div>
                 </div>
-                
                 <div class="roadmap-container" id="roadmap-container"></div>
+            </div>
+
+            <!-- Страница маскота -->
+            <div id="page-mascot" class="page hidden">
+                <div class="page-header">
+                    <h1>🐆 Леа — твой наставник</h1>
+                </div>
+                <div class="mascot-container">
+                    <div class="mascot-character">
+                        <div class="mascot-avatar">🐆</div>
+                        <div class="mascot-info">
+                            <div class="mascot-name">Леа</div>
+                            <div class="mascot-title">Эксперт по русскому языку</div>
+                            <div class="mascot-mood">
+                                <span>😊</span>
+                                <span>Рада помочь!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mascot-chat">
+                        <div class="chat-header">
+                            <span>💬</span>
+                            <h3>Спроси о теории</h3>
+                        </div>
+                        <div class="chat-topics" id="chat-topics"></div>
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="chat-message mascot">
+                                <div class="message-avatar">🐆</div>
+                                <div class="message-content">
+                                    Привет! Я помогу тебе разобраться с теорией для заданий 9-15 ЕГЭ. Выбери тему выше или задай вопрос! 📚
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input-container">
+                            <input type="text" class="chat-input" id="chat-input" placeholder="Спроси что-нибудь...">
+                            <button class="chat-send" id="chat-send">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Страница аватара -->
+            <div id="page-avatar" class="page hidden">
+                <div class="page-header">
+                    <h1>Мой аватар</h1>
+                </div>
+                <div class="avatar-customizer">
+                    <div class="avatar-preview">
+                        <div class="avatar-display" id="avatar-display">
+                            <div class="avatar-background" id="avatar-background"></div>
+                            <div class="avatar-base" id="avatar-base">🧑‍🎓</div>
+                            <div class="avatar-accessory hat" id="avatar-hat"></div>
+                            <div class="avatar-accessory glasses" id="avatar-glasses"></div>
+                            <div class="avatar-accessory pet" id="avatar-pet"></div>
+                        </div>
+                        <div class="avatar-info">
+                            <h3 id="avatar-player-name">Игрок</h3>
+                            <p>Уровень <span id="avatar-level">1</span></p>
+                            <div class="avatar-actions">
+                                <button class="btn-secondary btn-small" id="reset-avatar">Сбросить</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customizer-panel">
+                        <div class="customizer-tabs" id="customizer-tabs"></div>
+                        <div class="items-grid" id="customizer-items"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Страница статистики -->
             <div id="page-stats" class="page hidden">
-                <div class="page-header">
-                    <h1>Твоя статистика</h1>
-                </div>
+                <div class="page-header"><h1>Твоя статистика</h1></div>
                 <div class="stats-grid" id="stats-grid"></div>
-                <div class="stats-chart-container">
-                    <canvas id="progress-chart"></canvas>
-                </div>
             </div>
 
             <!-- Страница магазина -->
             <div id="page-shop" class="page hidden">
-                <div class="page-header">
-                    <h1>Магазин</h1>
-                </div>
+                <div class="page-header"><h1>Магазин</h1></div>
+                <div class="shop-tabs" id="shop-tabs"></div>
                 <div class="shop-grid" id="shop-grid"></div>
             </div>
 
             <!-- Страница достижений -->
             <div id="page-achievements" class="page hidden">
-                <div class="page-header">
-                    <h1>Достижения</h1>
-                </div>
+                <div class="page-header"><h1>Достижения</h1></div>
                 <div class="achievements-grid" id="achievements-grid"></div>
             </div>
         </main>
+
+        <!-- Мобильная навигация -->
+        <nav class="mobile-nav">
+            <button class="nav-item active" data-page="roadmap">
+                <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Карта</span>
+            </button>
+            <button class="nav-item" data-page="mascot">
+                <span class="nav-emoji">🐆</span>
+                <span>Леа</span>
+            </button>
+            <button class="nav-item" data-page="avatar">
+                <svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                <span>Аватар</span>
+            </button>
+            <button class="nav-item" data-page="shop">
+                <svg viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                <span>Магазин</span>
+            </button>
+            <button class="nav-item" data-page="achievements">
+                <svg viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                <span>Награды</span>
+            </button>
+        </nav>
+
+        <!-- Плавающий маскот -->
+        <div class="floating-mascot" id="floating-mascot">
+            🐆
+            <div class="mascot-tooltip">Нужна помощь? Спроси меня!</div>
+        </div>
     </div>
 
     <!-- Модальное окно урока -->
@@ -154,9 +252,7 @@
                 </div>
                 <button class="lesson-close" id="lesson-close">✕</button>
             </div>
-            
             <div class="lesson-body" id="lesson-body"></div>
-            
             <div class="lesson-footer">
                 <button class="btn-secondary" id="btn-skip">Пропустить</button>
                 <button class="btn-primary" id="btn-check" disabled>Проверить</button>
@@ -171,9 +267,7 @@
             <div class="result-icon" id="result-icon"></div>
             <h2 class="result-title" id="result-title"></h2>
             <p class="result-message" id="result-message"></p>
-            
             <div class="result-stats" id="result-stats"></div>
-            
             <div class="result-actions">
                 <button class="btn-secondary" id="btn-retry">Повторить</button>
                 <button class="btn-primary" id="btn-continue">Продолжить</button>
@@ -183,16 +277,24 @@
 
     <!-- Уведомления -->
     <div id="notifications" class="notifications"></div>
-
+    
     <!-- Конфетти -->
     <canvas id="confetti-canvas"></canvas>
 
+    <!-- Скрипты -->
     <script src="js/utils.js"></script>
     <script src="js/gameState.js"></script>
-    <script src="js/tasks.js"></script>
-    <script src="js/character.js"></script>
-    <script src="js/roadmap.js"></script>
-    <script src="js/stats.js"></script>
+    <script src="js/data/tasks.js"></script>
+    <script src="js/data/shop.js"></script>
+    <script src="js/data/theory.js"></script>
+    <script src="js/components/character.js"></script>
+    <script src="js/components/mascot.js"></script>
+    <script src="js/components/avatar.js"></script>
+    <script src="js/components/roadmap.js"></script>
+    <script src="js/components/lesson.js"></script>
+    <script src="js/components/shop.js"></script>
+    <script src="js/components/stats.js"></script>
+    <script src="js/components/achievements.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
