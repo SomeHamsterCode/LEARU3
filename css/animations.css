@@ -1,4 +1,6 @@
-/* ===== ПУЛЬСАЦИЯ ===== */
+/* ===== АНИМАЦИИ ===== */
+
+/* Пульсация */
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -8,7 +10,7 @@
     animation: pulse 2s ease infinite;
 }
 
-/* ===== СВЕЧЕНИЕ ===== */
+/* Свечение */
 @keyframes glow {
     0%, 100% { box-shadow: 0 0 5px var(--red-glow); }
     50% { box-shadow: 0 0 20px var(--red-glow), 0 0 30px var(--red-glow); }
@@ -18,7 +20,7 @@
     animation: glow 2s ease infinite;
 }
 
-/* ===== ПОКАЧИВАНИЕ ===== */
+/* Покачивание */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
@@ -29,7 +31,7 @@
     animation: shake 0.5s ease;
 }
 
-/* ===== ПОДПРЫГИВАНИЕ ===== */
+/* Подпрыгивание */
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -39,7 +41,7 @@
     animation: bounce 0.5s ease;
 }
 
-/* ===== ПОЯВЛЕНИЕ СНИЗУ ===== */
+/* Появление снизу */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -55,7 +57,7 @@
     animation: slideUp 0.5s ease backwards;
 }
 
-/* ===== ПОЯВЛЕНИЕ С УВЕЛИЧЕНИЕМ ===== */
+/* Появление с увеличением */
 @keyframes scaleIn {
     from {
         opacity: 0;
@@ -71,50 +73,7 @@
     animation: scaleIn 0.3s ease backwards;
 }
 
-/* ===== ВРАЩЕНИЕ ===== */
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.rotate {
-    animation: rotate 1s linear infinite;
-}
-
-/* ===== МИГАНИЕ ===== */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.blink {
-    animation: blink 1s ease infinite;
-}
-
-/* ===== ПЛАВНОЕ ПОЯВЛЕНИЕ ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.5s ease backwards;
-}
-
-/* Задержки для каскадной анимации */
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
-.delay-5 { animation-delay: 0.5s; }
-
-/* ===== УСПЕШНЫЙ ОТВЕТ ===== */
+/* Успешный ответ */
 @keyframes correctPop {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
@@ -125,7 +84,7 @@
     animation: correctPop 0.3s ease;
 }
 
-/* ===== НЕПРАВИЛЬНЫЙ ОТВЕТ ===== */
+/* Неправильный ответ */
 @keyframes incorrectShake {
     0%, 100% { transform: translateX(0); }
     20%, 60% { transform: translateX(-10px); }
@@ -136,18 +95,9 @@
     animation: incorrectShake 0.4s ease;
 }
 
-/* ===== ПОЛУЧЕНИЕ НАГРАДЫ ===== */
-@keyframes rewardFloat {
-    0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px) scale(1.5);
-    }
-}
-
-.reward-float {
-    animation: rewardFloat 1s ease forwards;
-}
+/* Задержки для каскадной анимации */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
