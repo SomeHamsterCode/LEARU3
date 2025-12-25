@@ -1,1 +1,281 @@
+/* ===== КАСТОМИЗАЦИЯ АВАТАРА ===== */
 
+.avatar-customizer {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+}
+
+/* Превью аватара */
+.avatar-preview {
+    background: var(--black-card);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-display {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--black-tertiary), var(--gray-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.avatar-base {
+    font-size: 6rem;
+    z-index: 2;
+}
+
+.avatar-accessory {
+    position: absolute;
+    font-size: 3rem;
+    z-index: 3;
+}
+
+.avatar-accessory.hat {
+    top: 0;
+}
+
+.avatar-accessory.glasses {
+    top: 35%;
+}
+
+.avatar-accessory.pet {
+    bottom: 10%;
+    right: 10%;
+    font-size: 2.5rem;
+}
+
+.avatar-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.avatar-info {
+    text-align: center;
+    width: 100%;
+}
+
+.avatar-info h3 {
+    margin-bottom: 0.25rem;
+}
+
+.avatar-info p {
+    color: var(--white-muted);
+    margin-bottom: 1rem;
+}
+
+.avatar-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Панель кастомизации */
+.customizer-panel {
+    background: var(--black-card);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+}
+
+.customizer-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.customizer-tab {
+    padding: 0.75rem 1.5rem;
+    background: var(--gray-dark);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    color: var(--white-secondary);
+    transition: all var(--transition-fast);
+}
+
+.customizer-tab:hover {
+    background: var(--gray-medium);
+}
+
+.customizer-tab.active {
+    background: var(--red-primary);
+    color: white;
+}
+
+/* Сетка предметов */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.item-card {
+    background: var(--black-tertiary);
+    border: 2px solid var(--gray-dark);
+    border-radius: var(--radius-xl);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.item-card:hover {
+    border-color: var(--gray-light);
+    transform: translateY(-2px);
+}
+
+.item-card.owned {
+    border-color: var(--success);
+}
+
+.item-card.equipped {
+    border-color: var(--red-primary);
+    box-shadow: 0 0 15px var(--red-glow);
+}
+
+.item-card.locked {
+    opacity: 0.6;
+}
+
+.item-preview {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.item-price {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--gray-dark);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.item-price.owned {
+    background: var(--success);
+    color: white;
+}
+
+.item-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--red-primary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+}
+
+/* ===== МАГАЗИН ===== */
+.shop-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.shop-tab {
+    padding: 0.75rem 1.5rem;
+    background: var(--gray-dark);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    color: var(--white-secondary);
+    transition: all var(--transition-fast);
+}
+
+.shop-tab:hover {
+    background: var(--gray-medium);
+}
+
+.shop-tab.active {
+    background: var(--red-primary);
+    color: white;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.shop-item {
+    background: var(--black-card);
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.shop-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--red-primary);
+}
+
+.shop-item.owned {
+    border-color: var(--success);
+}
+
+.shop-item-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.shop-item-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.shop-item-description {
+    color: var(--white-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.shop-item-price {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--gray-dark);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+}
+
+.shop-item-price.owned {
+    background: var(--success);
+    color: white;
+}
