@@ -48,7 +48,7 @@ const ShopData = {
             { id: 'bg_ocean', name: 'Океан', description: 'Спокойствие моря', price: 100, icon: '🌊', color: 'linear-gradient(135deg, #667eea, #764ba2)' },
             { id: 'bg_forest', name: 'Лесной', description: 'Природная сила', price: 100, icon: '🌲', color: 'linear-gradient(135deg, #56ab2f, #a8e063)' },
             { id: 'bg_sunset', name: 'Закат', description: 'Романтика вечера', price: 120, icon: '🌅', color: 'linear-gradient(135deg, #f093fb, #f5576c)' },
-            { id: 'bg_space', name: 'Космос', description: 'Бесконечность знаний', price: 150, icon: '🚀', color: 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)' },
+            { id: 'bg_space', name: 'Космос', description: 'Бесконечность знаний', price: 0, icon: '🚀', color: 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)' },
             { id: 'bg_gold', name: 'Золотой', description: 'Премиум-статус', price: 200, icon: '✨', color: 'linear-gradient(135deg, #f7971e, #ffd200)' },
             { id: 'bg_rainbow', name: 'Радуга', description: 'Все цвета успеха', price: 180, icon: '🌈', color: 'linear-gradient(135deg, #f093fb, #f5576c, #ffd200, #56ab2f, #667eea)' },
             { id: 'bg_night', name: 'Ночное небо', description: 'Мечтай о звёздах', price: 140, icon: '🌙', color: 'linear-gradient(135deg, #141e30, #243b55)' }
