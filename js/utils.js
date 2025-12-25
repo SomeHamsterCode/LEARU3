@@ -1,9 +1,9 @@
 // ===== УТИЛИТЫ =====
 
 const Utils = {
-    // Генерация уникального ID
-    generateId() {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    // Задержка (Promise)
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     },
 
     // Перемешивание массива
@@ -16,33 +16,14 @@ const Utils = {
         return shuffled;
     },
 
-    // Задержка
-    delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    },
-
-    // Анимация числа
-    animateNumber(element, start, end, duration = 1000) {
-        const startTime = performance.now();
-        const update = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOut = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(start + (end - start) * easeOut);
-            element.textContent = current;
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            }
-        };
-        requestAnimationFrame(update);
-    },
-
     // Сохранение в localStorage
     saveToStorage(key, data) {
         try {
             localStorage.setItem(key, JSON.stringify(data));
+            return true;
         } catch (e) {
             console.error('Ошибка сохранения:', e);
+            return false;
         }
     },
 
@@ -55,6 +36,11 @@ const Utils = {
             console.error('Ошибка загрузки:', e);
             return null;
         }
+    },
+
+    // Генерация уникального ID
+    generateId() {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
     },
 
     // Форматирование даты
@@ -75,26 +61,19 @@ const Utils = {
         return words[index];
     },
 
-    // Воспроизведение звука
-    playSound(type) {
-        // Можно добавить звуки позже
-        const sounds = {
-            correct: 'data:audio/wav;base64,...',
-            incorrect: 'data:audio/wav;base64,...',
-            levelUp: 'data:audio/wav;base64,...',
-        };
-    },
-
     // Конфетти
     fireConfetti() {
         const canvas = document.getElementById('confetti-canvas');
+        if (!canvas) return;
+        
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const particles = [];
-        const colors = ['#DC2626', '#FFFFFF', '#EF4444', '#22C55E', '#F59E0B'];
+        const colors = ['#DC2626', '#FFFFFF', '#EF4444', '#22C55E', '#F59E0B', '#8B5CF6', '#3B82F6'];
 
+        // Создаём частицы
         for (let i = 0; i < 150; i++) {
             particles.push({
                 x: canvas.width / 2,
@@ -116,7 +95,7 @@ const Utils = {
             particles.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
-                p.vy += 0.5;
+                p.vy += 0.5; // Гравитация
                 p.rotation += p.rotationSpeed;
                 
                 if (p.y < canvas.height + 50) {
@@ -138,5 +117,25 @@ const Utils = {
         };
         
         animate();
+    },
+
+    // Анимация числа
+    animateNumber(element, start, end, duration = 1000) {
+        const startTime = performance.now();
+        
+        const update = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(start + (end - start) * easeOut);
+            
+            element.textContent = current;
+            
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        };
+        
+        requestAnimationFrame(update);
     }
 };
