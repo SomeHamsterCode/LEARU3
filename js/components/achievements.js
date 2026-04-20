@@ -125,11 +125,11 @@ const Achievements = {
             icon: '🧠', 
             condition: () => GameState.data.level >= 10 
         },
-        { 
-            id: 'leo_friend', 
-            name: 'Друг Леа', 
-            description: 'Провести 10 уроков', 
-            icon: '🐆', 
+        {
+            id: 'lion_friend',
+            name: 'Друг Достойного',
+            description: 'Провести 10 уроков',
+            icon: '🦁',
             condition: () => GameState.data.stats.lessonsCompleted >= 10
         }
     ],
