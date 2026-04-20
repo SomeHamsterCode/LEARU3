@@ -307,15 +307,15 @@ function getRandomTasks(type, count = 5) {
     return shuffled.slice(0, Math.min(count, shuffled.length));
 }
 
-// Получение типов заданий
+// Получение типов заданий — обновлённые цвета
 function getTaskTypes() {
     return [
-        { id: 9, name: 'Правописание корней', icon: '🌱', color: '#DC2626' },
-        { id: 10, name: 'Правописание приставок', icon: '🔗', color: '#B91C1C' },
-        { id: 11, name: 'Правописание суффиксов', icon: '✨', color: '#991B1B' },
-        { id: 12, name: 'Окончания глаголов', icon: '📝', color: '#7F1D1D' },
-        { id: 13, name: 'НЕ и НИ', icon: '🚫', color: '#DC2626' },
-        { id: 14, name: 'Слитно/раздельно', icon: '↔️', color: '#B91C1C' },
-        { id: 15, name: 'Н и НН', icon: '🔠', color: '#991B1B' }
+        { id: 9,  name: 'Правописание корней',    icon: '🌱', color: '#7F2AFF' },
+        { id: 10, name: 'Правописание приставок',  icon: '🔗', color: '#7234D6' },
+        { id: 11, name: 'Правописание суффиксов',  icon: '✨', color: '#6B21D6' },
+        { id: 12, name: 'Окончания глаголов',      icon: '📝', color: '#5B18B5' },
+        { id: 13, name: 'НЕ и НИ',                 icon: '🚫', color: '#9B59FF' },
+        { id: 14, name: 'Слитно/раздельно',        icon: '↔️', color: '#8B45F0' },
+        { id: 15, name: 'Н и НН',                  icon: '🔠', color: '#6B21D6' }
     ];
 }
