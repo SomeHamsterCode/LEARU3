@@ -293,23 +293,24 @@ const Lesson = {
         const percentage = Math.round((this.score / total) * 100);
         
         // Определяем результат
+       // В функции showResult:
         if (isPerfect) {
             icon.textContent = '🏆';
             title.textContent = 'Идеально!';
-            message.textContent = '🐆 Леа: "Рррр! Ты просто великолепен! Я горжусь тобой!"';
+            message.textContent = '🦁 Достойный: "Рррр! Это было достойно! Я горжусь тобой!"';
             Utils.fireConfetti();
         } else if (percentage >= 80) {
             icon.textContent = '🎉';
             title.textContent = 'Отлично!';
-            message.textContent = '🐆 Леа: "Прекрасный результат! Так держать!"';
+            message.textContent = '🦁 Достойный: "Прекрасный результат! Настоящий лев знаний!"';
         } else if (percentage >= 60) {
             icon.textContent = '👍';
             title.textContent = 'Хорошо!';
-            message.textContent = '🐆 Леа: "Неплохо! Но я знаю, что ты можешь лучше!"';
+            message.textContent = '🦁 Достойный: "Неплохо! Но лев может лучше! Давай ещё раз!"';
         } else {
             icon.textContent = '📚';
             title.textContent = 'Нужна практика';
-            message.textContent = '🐆 Леа: "Не расстраивайся! Давай повторим теорию вместе!"';
+            message.textContent = '🦁 Достойный: "Не сдавайся! Лев не отступает! Давай повторим теорию!"';
         }
         
         // Бонусный опыт за идеальный урок
