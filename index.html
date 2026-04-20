@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    
 <!-- Экран загрузки -->
 <div id="loading-screen" class="loading-screen">
     <div class="loader">
@@ -27,24 +28,24 @@
 
 
     <!-- Создание персонажа -->
-    <div id="character-creation" class="screen hidden">
-        <div class="character-container">
-            <div class="mascot-welcome">🐆</div>
-            <div class="mascot-speech">
-                <p>Привет! Я <strong>Леа</strong> — твоя помощница в подготовке к ЕГЭ! 📚</p>
-                <p>Давай создадим твоего персонажа и начнём путешествие к 100 баллам!</p>
-            </div>
-            <h1 class="title-glow">Создай своего героя</h1>
-            <p class="subtitle">Выбери аватар и имя для начала квеста</p>
-            <div class="avatar-grid" id="avatar-grid"></div>
-            <div class="input-group">
-                <input type="text" id="player-name" placeholder="Введи имя героя" maxlength="20">
-            </div>
-            <button id="start-journey" class="btn-primary" disabled>
-                <span>Начать путешествие</span>
-            </button>
+<div id="character-creation" class="screen hidden">
+    <div class="character-container">
+        <div class="mascot-welcome">🦁</div>
+        <div class="mascot-speech">
+            <p>Привет! Я <strong>Достойный</strong> — твой наставник в подготовке к ЕГЭ! 📚</p>
+            <p>Давай создадим твоего персонажа и начнём путешествие к 100 баллам!</p>
         </div>
+        <h1 class="title-glow">Создай своего героя</h1>
+        <p class="subtitle">Выбери аватар и имя для начала квеста</p>
+        <div class="avatar-grid" id="avatar-grid"></div>
+        <div class="input-group">
+            <input type="text" id="player-name" placeholder="Введи имя героя" maxlength="20">
+        </div>
+        <button id="start-journey" class="btn-primary" disabled>
+            <span>Начать путешествие</span>
+        </button>
     </div>
+</div>
 
     <!-- Главный экран -->
     <div id="main-screen" class="screen hidden">
@@ -84,8 +85,8 @@
                     <span>Карта</span>
                 </button>
                 <button class="nav-item mascot-nav" data-page="mascot">
-                    <span class="nav-emoji">🐆</span>
-                    <span>Леа</span>
+                    <span class="nav-emoji">🦁</span>
+                    <span>Достойный</span>
                 </button>
                 <button class="nav-item" data-page="avatar">
                     <svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
@@ -125,17 +126,17 @@
             <!-- Страница маскота -->
             <div id="page-mascot" class="page hidden">
                 <div class="page-header">
-                    <h1>🐆 Леа — твой наставник</h1>
+                    <h1>🦁 Достойный — твой наставник</h1>
                 </div>
                 <div class="mascot-container">
                     <div class="mascot-character">
-                        <div class="mascot-avatar">🐆</div>
+                        <div class="mascot-avatar">🦁</div>
                         <div class="mascot-info">
-                            <div class="mascot-name">Леа</div>
+                            <div class="mascot-name">Достойный</div>
                             <div class="mascot-title">Эксперт по русскому языку</div>
                             <div class="mascot-mood">
                                 <span>😊</span>
-                                <span>Рада помочь!</span>
+                                <span>Готов помочь!</span>
                             </div>
                         </div>
                     </div>
@@ -147,9 +148,9 @@
                         <div class="chat-topics" id="chat-topics"></div>
                         <div class="chat-messages" id="chat-messages">
                             <div class="chat-message mascot">
-                                <div class="message-avatar">🐆</div>
+                                <div class="message-avatar">🦁</div>
                                 <div class="message-content">
-                                    Привет! Я помогу тебе разобраться с теорией для заданий 9-15 ЕГЭ. Выбери тему выше или задай вопрос! 📚
+                                    Привет! Я Достойный — твой верный наставник! Помогу разобраться с теорией для заданий 9-15 ЕГЭ. Выбери тему выше или задай вопрос! 📚
                                 </div>
                             </div>
                         </div>
