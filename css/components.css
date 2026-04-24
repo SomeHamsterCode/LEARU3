@@ -569,6 +569,7 @@
 .result-content {
     padding: 3rem;
     text-align: center;
+    overflow-y: auto;
 }
 
 .result-icon {
@@ -623,6 +624,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* ===== СТАТИСТИКА ===== */
