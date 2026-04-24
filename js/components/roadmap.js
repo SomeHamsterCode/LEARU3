@@ -1,6 +1,8 @@
 // ===== ДОРОЖНАЯ КАРТА =====
 
 const Roadmap = {
+    isInitialized: false, // <--- ДОБАВЛЯЕМ
+    
     // Рендер карты
     render() {
         const container = document.getElementById('roadmap-container');
@@ -53,7 +55,10 @@ const Roadmap = {
             `;
         }).join('');
         
-        this.bindEvents();
+        if (!this.isInitialized) { // <--- ПРОВЕРЯЕМ
+            this.bindEvents();
+            this.isInitialized = true;
+        }
     },
     
     // Рендер звёзд
