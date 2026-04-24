@@ -2,12 +2,17 @@
 
 const Shop = {
     currentTab: 'boosters',
+    isInitialized: false, // <--- ДОБАВЛЯЕМ
     
     // Инициализация
     init() {
         this.renderTabs();
         this.renderItems();
-        this.bindEvents();
+        
+        if (!this.isInitialized) { // <--- ПРОВЕРЯЕМ
+            this.bindEvents();
+            this.isInitialized = true;
+        }
     },
     
     // Рендер табов
