@@ -1,0 +1,294 @@
+/* ===== БРЕНДИНГ И PNG-АССЕТЫ ===== */
+
+#main-screen {
+    position: relative;
+    isolation: isolate;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== ЛОГОТИП ===== */
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    display: block;
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(127, 42, 255, 0.15));
+}
+
+/* ===== МАСКОТ НА ЗАГРУЗКЕ ===== */
+
+.loader-mascot {
+    width: min(250px, 55vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+}
+
+.loader-mascot-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+    animation: mascotFloatSoft 3s ease-in-out infinite;
+}
+
+@keyframes mascotFloatSoft {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ===== ПЛАВАЮЩИЙ МАСКОТ ===== */
+
+.floating-mascot {
+    overflow: hidden;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(8px);
+}
+
+.floating-mascot-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ===== ФОНОВЫЕ ШАРЫ ===== */
+
+.site-decor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bg-balloon {
+    position: absolute;
+    display: block;
+    width: clamp(90px, 10vw, 180px);
+    height: auto;
+    opacity: 0.1;
+    filter: drop-shadow(0 10px 25px rgba(127, 42, 255, 0.08));
+    will-change: transform;
+    user-select: none;
+}
+
+/* Позиции */
+.balloon-1 {
+    top: 6%;
+    left: 3%;
+    width: 140px;
+    animation:
+        balloonFloatA 16s ease-in-out infinite,
+        balloonRotateA 11s ease-in-out infinite alternate;
+}
+
+.balloon-2 {
+    top: 12%;
+    right: 8%;
+    width: 120px;
+    animation:
+        balloonFloatB 18s ease-in-out infinite,
+        balloonRotateB 13s ease-in-out infinite alternate;
+}
+
+.balloon-3 {
+    top: 38%;
+    left: 6%;
+    width: 110px;
+    animation:
+        balloonFloatC 20s ease-in-out infinite,
+        balloonRotateA 10s ease-in-out infinite alternate;
+}
+
+.balloon-4 {
+    bottom: 16%;
+    left: 18%;
+    width: 125px;
+    animation:
+        balloonFloatB 19s ease-in-out infinite,
+        balloonRotateB 12s ease-in-out infinite alternate;
+}
+
+.balloon-5 {
+    top: 28%;
+    right: 16%;
+    width: 180px;
+    animation:
+        balloonFloatA 22s ease-in-out infinite,
+        balloonRotateA 14s ease-in-out infinite alternate;
+}
+
+.balloon-6 {
+    bottom: 10%;
+    right: 8%;
+    width: 160px;
+    animation:
+        balloonFloatC 24s ease-in-out infinite,
+        balloonRotateB 15s ease-in-out infinite alternate;
+}
+
+.balloon-7 {
+    top: 62%;
+    right: 34%;
+    width: 95px;
+    animation:
+        balloonFloatB 17s ease-in-out infinite,
+        balloonRotateA 9s ease-in-out infinite alternate;
+}
+
+.balloon-8 {
+    bottom: 26%;
+    left: 42%;
+    width: 105px;
+    animation:
+        balloonFloatA 21s ease-in-out infinite,
+        balloonRotateB 10s ease-in-out infinite alternate;
+}
+
+/* Движения */
+@keyframes balloonFloatA {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    25% {
+        transform: translate3d(10px, -14px, 0);
+    }
+    50% {
+        transform: translate3d(18px, 8px, 0);
+    }
+    75% {
+        transform: translate3d(-10px, -8px, 0);
+    }
+}
+
+@keyframes balloonFloatB {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    25% {
+        transform: translate3d(-14px, -10px, 0);
+    }
+    50% {
+        transform: translate3d(12px, 12px, 0);
+    }
+    75% {
+        transform: translate3d(-8px, 6px, 0);
+    }
+}
+
+@keyframes balloonFloatC {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    30% {
+        transform: translate3d(8px, -18px, 0);
+    }
+    60% {
+        transform: translate3d(-12px, 10px, 0);
+    }
+    80% {
+        transform: translate3d(6px, -6px, 0);
+    }
+}
+
+@keyframes balloonRotateA {
+    0% {
+        rotate: -3deg;
+    }
+    100% {
+        rotate: 3deg;
+    }
+}
+
+@keyframes balloonRotateB {
+    0% {
+        rotate: 2deg;
+    }
+    100% {
+        rotate: -2deg;
+    }
+}
+
+/* Чтобы шары точно не мешали */
+.header,
+.sidebar,
+.mobile-nav,
+.floating-mascot {
+    position: relative;
+    z-index: 5;
+}
+
+/* ===== АДАПТИВ ===== */
+
+@media (max-width: 1024px) {
+    .logo-image {
+        height: 34px;
+    }
+
+    .loader-mascot {
+        width: min(210px, 58vw);
+    }
+
+    .bg-balloon {
+        opacity: 0.08;
+    }
+
+    .balloon-7,
+    .balloon-8 {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 28px;
+    }
+
+    .loader-mascot {
+        width: min(180px, 62vw);
+    }
+
+    .floating-mascot {
+        width: 62px;
+        height: 62px;
+        padding: 5px;
+    }
+
+    .bg-balloon {
+        opacity: 0.06;
+        width: clamp(70px, 16vw, 120px);
+    }
+
+    .balloon-5,
+    .balloon-6,
+    .balloon-7,
+    .balloon-8 {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-mascot-image,
+    .bg-balloon {
+        animation: none !important;
+    }
+}
