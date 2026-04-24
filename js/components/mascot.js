@@ -3,6 +3,7 @@
 const Mascot = {
     name: 'Достойный',
     emoji: '🦁',
+    isInitialized: false, // <--- ДОБАВЛЯЕМ ФЛАГ ЗДЕСЬ
     
     // Фразы для разных ситуаций
     phrases: {
@@ -64,9 +65,14 @@ const Mascot = {
     },
     
     // Инициализация страницы маскота
-    init() {
+      init() {
         this.renderTopics();
-        this.bindEvents();
+        
+        // Привязываем события ТОЛЬКО один раз
+        if (!this.isInitialized) {
+            this.bindEvents();
+            this.isInitialized = true; // Запоминаем, что события уже висят
+        }
     },
     
     // Рендер кнопок тем
