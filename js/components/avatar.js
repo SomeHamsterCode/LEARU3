@@ -2,6 +2,7 @@
 
 const AvatarCustomizer = {
     currentTab: 'hats',
+    isInitialized: false, // <--- ДОБАВЛЯЕМ
     
     // Категории для кастомизации
     categories: ['hats', 'glasses', 'pets', 'backgrounds'],
@@ -13,11 +14,15 @@ const AvatarCustomizer = {
     },
     
     // Инициализация
-    init() {
+     init() {
         this.renderTabs();
         this.renderItems();
         this.updatePreview();
-        this.bindEvents();
+        
+        if (!this.isInitialized) { // <--- ПРОВЕРЯЕМ
+            this.bindEvents();
+            this.isInitialized = true;
+        }
     },
     
     // Рендер табов
