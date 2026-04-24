@@ -60,212 +60,345 @@
         --header-height: 60px;
         --sidebar-width: 0px;
     }
-    
+
+    /* ===== ОБЩЕЕ ===== */
     .sidebar {
         display: none;
     }
-    
+
     .main-content {
         margin-left: 0;
         padding: 1rem;
-        padding-bottom: 80px;
+        padding-bottom: 88px;
     }
-    
+
     .header {
-        padding: 0 1rem;
+        padding: 0 0.75rem;
+        gap: 0.5rem;
     }
-    
+
+    .header-left,
+    .header-right {
+        gap: 0.5rem;
+    }
+
     .logo-text {
         display: none;
     }
-    
+
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+
+    .streak-display {
+        padding: 0.35rem 0.65rem;
+    }
+
     .streak-label {
         display: none;
     }
-    
-    /* Создание персонажа */
+
+    .streak-count {
+        font-size: 0.95rem;
+    }
+
+    .currency-display {
+        padding: 0.35rem 0.65rem;
+    }
+
+    .currency-amount {
+        font-size: 0.9rem;
+    }
+
+    .hearts-container {
+        gap: 0.1rem;
+    }
+
+    .heart {
+        font-size: 1.15rem;
+    }
+
+    /* Самый простой и надежный фикс — прячем аватар в шапке на мобилке */
+    .profile-btn {
+        display: none;
+    }
+
+    /* ===== СОЗДАНИЕ ПЕРСОНАЖА ===== */
     .title-glow {
         font-size: 2rem;
     }
-    
+
     .mascot-welcome {
         font-size: 4rem;
     }
-    
+
     .avatar-grid {
         gap: 0.75rem;
     }
-    
+
     .avatar-option {
         font-size: 1.75rem;
     }
-    
-    /* Урок */
-    .lesson-content {
-        height: 100vh;
+
+    /* ===== МОДАЛКИ ===== */
+    .modal {
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    .modal-content {
+        width: 100vw;
+        max-width: 100vw;
+        max-height: 100dvh;
         border-radius: 0;
     }
-    
+
+    .lesson-content {
+        height: 100dvh;
+    }
+
+    .lesson-header {
+        padding: 1rem;
+        flex-shrink: 0;
+    }
+
     .lesson-body {
         padding: 1rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
-    
-    .task-question {
-        font-size: 1.1rem;
-    }
-    
-    .task-text {
-        font-size: 1rem;
+
+    .lesson-footer {
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        background: var(--bg-primary);
         padding: 1rem;
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        flex-shrink: 0;
     }
-    
-    /* Результат */
+
+    /* ===== РЕЗУЛЬТАТ УРОКА ===== */
+    .result-content {
+        width: 100vw;
+        max-width: 100vw;
+        max-height: 100dvh;
+        min-height: 100dvh;
+        overflow-y: auto;
+        padding: 1.25rem 1rem calc(1.25rem + env(safe-area-inset-bottom));
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .result-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .result-title {
+        font-size: 1.5rem;
+    }
+
+    .result-message {
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+
     .result-stats {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
-    
+
     .result-actions {
+        position: sticky;
+        bottom: 0;
+        background: var(--bg-primary);
+        padding-top: 1rem;
+        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+        margin-top: auto;
         flex-direction: column;
     }
-    
-    /* Статистика */
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* ===== ЗАДАНИЕ ===== */
+    .task-question {
+        font-size: 1.05rem;
     }
-    
-    /* Маскот */
+
+    .task-text {
+        font-size: 0.98rem;
+        padding: 1rem;
+    }
+
+    /* ===== МАСКОТ / ТЕОРИЯ ===== */
+    .mascot-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        gap: 1rem;
+    }
+
     .mascot-character {
         flex-direction: column;
         text-align: center;
+        padding: 1.25rem;
     }
-    
+
+    .mascot-avatar {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+    }
+
     .mascot-info {
         text-align: center;
     }
-    
+
     .mascot-mood {
         justify-content: center;
     }
-    
+
+    .mascot-chat {
+        min-height: 72dvh;
+        height: auto;
+    }
+
     .chat-topics {
         justify-content: center;
     }
-    
-    /* Аватар */
+
+    .chat-messages {
+        min-height: 42dvh;
+        max-height: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ===== АВАТАР ===== */
+    .avatar-customizer {
+        grid-template-columns: 1fr;
+    }
+
     .avatar-preview {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .avatar-display {
         width: 150px;
         height: 150px;
     }
-    
+
     .avatar-base {
         font-size: 4rem;
     }
-    
+
     .avatar-info {
         text-align: center;
     }
-    
+
     .avatar-actions {
         justify-content: center;
     }
-    
+
     .items-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    /* Плавающий маскот */
+
+    /* ===== СТАТИСТИКА ===== */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ===== ПЛАВАЮЩИЙ МАСКОТ ===== */
     .floating-mascot {
-        bottom: 5rem;
+        bottom: 5.25rem;
         right: 1rem;
         width: 60px;
         height: 60px;
         font-size: 2rem;
     }
-    
-    /* Мобильная навигация */
+
+    /* ===== МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
     .mobile-nav {
         display: flex;
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--black-secondary);
-        border-top: 1px solid var(--gray-dark);
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-light);
         padding: 0.5rem;
         z-index: 100;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
     }
-    
+
     .mobile-nav .nav-item {
         flex: 1;
         flex-direction: column;
         gap: 0.25rem;
-        padding: 0.5rem;
+        padding: 0.45rem 0.25rem;
         justify-content: center;
     }
-    
+
     .mobile-nav .nav-item span {
         opacity: 1;
-        font-size: 0.65rem;
+        font-size: 0.62rem;
     }
-    
+
     .mobile-nav .nav-item svg,
     .mobile-nav .nav-item .nav-emoji {
         width: 20px;
         height: 20px;
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 }
 
-@media (min-width: 769px) {
-    .mobile-nav {
-        display: none;
-    }
-}
-
-/* Маленькие мобильные */
 @media (max-width: 480px) {
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .shop-grid,
     .achievements-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .page-header h1 {
         font-size: 1.5rem;
     }
-    
+
     .items-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;
     }
-    
+
     .item-card {
         padding: 0.75rem;
     }
-    
+
     .item-preview {
         font-size: 2rem;
         height: 40px;
     }
-    
+
     .item-name {
         font-size: 0.8rem;
     }
-    
+
     .customizer-tabs {
         justify-content: center;
     }
-    
+
     .customizer-tab {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
+    }
+
+    .profile-btn {
+        display: none;
     }
 }
